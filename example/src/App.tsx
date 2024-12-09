@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import { Text, ThemeProvider, Divider } from '@teamhealthflex/ui';
+import { Text, ThemeProvider, Divider, Button } from '@teamhealthflex/ui';
 
 import { storage } from './storage';
 
@@ -9,6 +9,7 @@ export default function App() {
       <View style={styles.container}>
         <Text>Text demo component</Text>
         <Divider line style={styles.divider} type="horizontal" />
+        <Button text="Test" onPress={() => console.log('Button pressed')} />
       </View>
     </ThemeProvider>
   );

@@ -1,5 +1,5 @@
-import { render } from '@tests/setup';
 import { View } from 'react-native';
+import { render } from '@tests/setup';
 
 import { Divider } from './index';
 
