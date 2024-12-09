@@ -9,7 +9,7 @@ export default function App() {
       <View style={styles.container}>
         <Text>Text demo component</Text>
         <Divider line style={styles.divider} type="horizontal" />
-        <Button text="Test" onPress={() => console.log('Button pressed')} />
+        <Button text="Test" />
       </View>
     </ThemeProvider>
   );
