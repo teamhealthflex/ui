@@ -1,3 +1,3 @@
-export function multiply(a: number, b: number): number {
-  return a * b;
-}
+export * from './theme';
+export * from './contexts';
+export * from './components';

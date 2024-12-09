@@ -1,0 +1,13 @@
+node_modules
+node_modules/**/*
+"lib/"
+__tests__/
+.vscode/
+android/
+coverage/
+ios/
+.expo
+.expo-shared
+docs/
+cli/
+expo-env.*

@@ -1,13 +1,15 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from '@teamhealthflex/ui';
+import { View, StyleSheet } from 'react-native';
+import { Text, ThemeProvider } from '@teamhealthflex/ui';
 
-const result = multiply(3, 7);
+import { storage } from './storage';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <ThemeProvider storage={storage} defaultTheme="light" storageKey="HF_THEME_STORAGE">
+      <View style={styles.container}>
+        <Text>text demo component</Text>
+      </View>
+    </ThemeProvider>
   );
 }
 

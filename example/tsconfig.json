@@ -1,6 +1,16 @@
 {
   "extends": "../tsconfig",
   "compilerOptions": {
-    // Avoid expo-cli auto-generating a tsconfig
+    "baseUrl": ".",
+    "paths": {
+      "@theme": ["../src/theme"],
+      "@theme/*": ["../src/theme/*"],
+      "@contexts": ["../src/contexts"],
+      "@contexts/*": ["../src/contexts/*"],
+      "@components": ["../src/components"],
+      "@components/*": ["../src/components/*"],
+      "@teamhealthflex/ui": ["../src"],
+      "@teamhealthflex/ui/*": ["../src/*"]
+    }
   }
 }

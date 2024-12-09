@@ -2,6 +2,14 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
+      "@tests": ["./tests"],
+      "@tests/*": ["./tests/*"],
+      "@theme": ["./src/theme"],
+      "@theme/*": ["./src/theme/*"],
+      "@contexts": ["./src/contexts"],
+      "@contexts/*": ["./src/contexts/*"],
+      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
       "@teamhealthflex/ui": ["./src/index"]
     },
     "allowUnreachableCode": false,
@@ -25,6 +33,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": false
   }
 }
