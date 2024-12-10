@@ -64,6 +64,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
     "@commitlint/config-conventional": "^17.0.2",
     "@evilmartians/lefthook": "^1.5.0",
     "@react-native/eslint-config": "^0.73.1",
@@ -166,6 +168,7 @@
     "version": "0.45.3"
   },
   "dependencies": {
+    "react-native-reanimated": "~3.16.1",
     "react-native-responsive-fontsize": "^0.5.1",
     "react-native-safe-area-context": "^5.0.0"
   }
