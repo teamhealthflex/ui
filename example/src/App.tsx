@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import { Text, ThemeProvider, Chip, Card, TextField } from '@teamhealthflex/ui';
+import { Text, ThemeProvider, Chip, Card, TextField, CircularProgress } from '@teamhealthflex/ui';
 
 import { storage } from './storage';
 
@@ -26,6 +26,18 @@ export default function App() {
         <View style={styles.inputContainer}>
           <TextField label="Name" placeholder="Enter your name" style={styles.input} />
         </View>
+
+        {/* Demo CircularProgress Component */}
+        <CircularProgress
+          size={100}
+          progress={75}
+          centerText="75%"
+          strokeWidth={10}
+          primaryColor="#48D6E0"
+          secondaryColor="#2AEEA2"
+          backgroundStrokeColor="#E0E0E0"
+          centerTextStyle={styles.centerText}
+        />
       </View>
     </ThemeProvider>
   );
@@ -58,5 +70,9 @@ const styles = StyleSheet.create({
     borderColor: '#CCC',
     paddingHorizontal: 12,
     backgroundColor: '#FFF',
+  },
+  centerText: {
+    color: 'black',
+    fontSize: 12,
   },
 });
