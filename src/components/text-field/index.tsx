@@ -2,11 +2,11 @@ import React from 'react';
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form';
 import {
   View,
+  Keyboard,
   ViewStyle,
   StyleProp,
   TextInput,
   TextStyle,
-  Keyboard,
   TextInputProps,
   TouchableOpacity,
 } from 'react-native';
@@ -187,6 +187,7 @@ export const TextField = React.forwardRef(function TextField(
     marginEnd: spacing.xs,
     justifyContent: 'center',
   };
+
   const $leftAccessoryStyle: ViewStyle = {
     height: 44,
     alignItems: 'center',
@@ -355,6 +356,10 @@ export const ControlledTextField = React.forwardRef(function ControlledTextField
   );
 });
 
+/**
+ * The display name of the `TextField` component.
+ * @type {string}
+ */
 ControlledTextField.displayName = 'ControlledTextField';
 
 export default TextField;
