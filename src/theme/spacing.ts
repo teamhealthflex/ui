@@ -17,6 +17,9 @@ export const spacing = {
   xl: SPACING_BASE * 8,
   xxl: SPACING_BASE * 12,
   xxxl: SPACING_BASE * 16,
+  header_height: 50,
+  header_section_height: 144,
+  header_section_empty_height: 75,
 } as const;
 
 /**
