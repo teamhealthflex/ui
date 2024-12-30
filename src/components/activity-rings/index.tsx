@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, StyleProp, ViewStyle, TextStyle, Text, Animated } from 'react-native';
+import { View, StyleProp, ViewStyle, TextStyle, Text, Animated, ViewProps } from 'react-native';
 
 import { useTheme } from '@contexts';
 import CircularProgress from '../circular-progress';
-import { fontSizes, fontWeights, radius, spacing } from '@theme';
 import { toTitleCase } from '../../resources/utils';
+import { fontSizes, fontWeights, radius, spacing } from '@theme';
 
-export interface RingConfig {
+export interface RingConfig extends ViewProps {
   /**
    * The progress value of the ring, typically between 0 and 100.
    */
@@ -48,7 +48,7 @@ export interface RingConfig {
   legendText: string;
 }
 
-export interface ActivityRingProps {
+export interface ActivityRingProps extends ViewProps {
   /**
    * Array of ring configurations, where each ring can have different progress, colors, and widths.
    */
@@ -110,18 +110,20 @@ export interface ActivityRingProps {
  *
  * @returns {JSX.Element} The rendered `ActivityRing` component.
  */
-export function ActivityRing({
-  rings,
-  title,
-  children,
-  textStyle,
-  titleStyle,
-  containerStyle,
-  progressValueStyle,
-  showValueText = false,
-  radius: activityRingRadius,
-  ...rest
-}: ActivityRingProps): JSX.Element {
+
+export function ActivityRing(props: ActivityRingProps) {
+  const {
+    rings,
+    title,
+    children,
+    textStyle,
+    titleStyle,
+    containerStyle,
+    progressValueStyle,
+    showValueText = false,
+    radius: activityRingRadius,
+    ...rest
+  } = props;
   const { colors } = useTheme();
 
   const $wrapper: ViewStyle = {
@@ -130,18 +132,21 @@ export function ActivityRing({
     alignItems: 'center',
     justifyContent: 'flex-start',
   };
+
   const $container: ViewStyle = {
     flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: spacing.xxl,
   };
+
   const $title: TextStyle = {
     ...fontSizes.lg,
     textAlign: 'center',
     marginBottom: spacing.md,
     fontWeight: fontWeights.bold,
   };
+
   const $legendContainer: ViewStyle = {
     flexWrap: 'wrap',
     flexDirection: 'row',
@@ -151,6 +156,7 @@ export function ActivityRing({
     justifyContent: 'space-between',
     backgroundColor: colors.white100,
   };
+
   const $legendItem: TextStyle = {
     width: '48%',
     alignItems: 'center',
@@ -159,22 +165,26 @@ export function ActivityRing({
     marginBottom: spacing.xs,
     justifyContent: 'flex-start',
   };
+
   const $textContainer: ViewStyle = {
     maxWidth: '80%',
     flexWrap: 'wrap',
     marginLeft: radius.sm,
     flexDirection: 'column',
   };
+
   const $colorDot: TextStyle = {
     width: spacing.md,
     marginRight: radius.md,
     borderRadius: radius.md,
     height: spacing.sm * 1.3, // as per business requirements
   };
+
   const $legendText: TextStyle = {
     ...fontSizes.sm,
     color: colors.primary300,
   };
+
   const $valueText: TextStyle = {
     ...fontSizes.xs,
     marginTop: spacing.xxxs,

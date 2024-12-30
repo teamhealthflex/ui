@@ -27,6 +27,7 @@ describe('Card Component', () => {
       <Card heading="Active Card" defaultStyle={{ backgroundColor: 'light blue' }} />,
     );
     const heading = getByText('Active Card');
+
     expect(heading).toBeTruthy();
   });
 
@@ -40,6 +41,7 @@ describe('Card Component', () => {
   it('renders custom heading component', () => {
     const CustomHeading = () => <Text testID="custom-heading">Custom Heading</Text>;
     const { getByTestId } = render(<Card HeadingComponent={<CustomHeading />} />);
+
     expect(getByTestId('custom-heading')).toBeTruthy();
   });
 
