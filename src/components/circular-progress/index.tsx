@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, Animated, ViewStyle, TextStyle } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
+import { View, Text, Animated, ViewStyle, TextStyle, ViewProps } from 'react-native';
 
 import { useTheme } from '@contexts';
 import { fontWeights, spacing } from '@theme';
@@ -8,7 +8,7 @@ import { fontWeights, spacing } from '@theme';
 /**
  * The props for the circular progress component.
  */
-export interface CircularProgressProps {
+export interface CircularProgressProps extends ViewProps {
   /**
    * The size of the circular progress component.
    */
