@@ -1,12 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
-import type { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, TextStyle, View, ViewProps, ViewStyle } from 'react-native';
 
 import { Text } from '../text';
 import { useTheme } from '@contexts';
 import { radius, spacing } from '@theme';
 
-export interface ChipProps {
+export interface ChipProps extends ViewProps {
   /**
    * The text to display inside the chip.
    */
@@ -25,16 +24,21 @@ export interface ChipProps {
   /**
    * The preset style of the chip.
    */
-  preset?: Presets;
+  preset?: ChipPresets;
 
   /**
    * The variant of the chip.
    */
   variant?: 'solid' | 'outline';
+
+  /**
+   * Additional styles for the chip.
+   */
+  style?: StyleProp<ViewStyle>;
 }
 
 export type SizePresets = 'xs' | 'sm' | 'md' | 'lg';
-export type Presets = 'info' | 'success' | 'warning' | 'error';
+export type ChipPresets = 'info' | 'success' | 'warning' | 'error';
 
 /**
  * A component to display a chip.
@@ -42,55 +46,44 @@ export type Presets = 'info' | 'success' | 'warning' | 'error';
  * @returns {JSX.Element} The rendered `Chip` component.
  */
 export function Chip(props: ChipProps) {
-  const { text, children, size = 'sm', preset = 'info', variant = 'solid', ...rest } = props;
+  const { text, children, size = 'sm', preset = 'info', variant = 'solid', style, ...rest } = props;
   const { colors } = useTheme();
 
-  const $baseViewStyle: StyleProp<ViewStyle> = {
+  const $baseViewStyle: ViewStyle = {
     alignItems: 'center',
     flexDirection: 'row',
     borderRadius: radius.lg,
     justifyContent: 'center',
   };
 
-  const $viewPresets: Record<Presets, StyleProp<ViewStyle>> = {
-    info: [
-      $baseViewStyle,
-      {
-        color: colors.info600,
-        borderColor: colors.info300,
-        backgroundColor: colors.info100,
-      },
-    ] as StyleProp<ViewStyle>,
-
-    success: [
-      $baseViewStyle,
-      {
-        color: colors.success600,
-        borderColor: colors.success300,
-        backgroundColor: colors.success100,
-      },
-    ] as StyleProp<ViewStyle>,
-
-    warning: [
-      $baseViewStyle,
-      {
-        color: colors.warning600,
-        borderColor: colors.warning300,
-        backgroundColor: colors.warning100,
-      },
-    ] as StyleProp<ViewStyle>,
-
-    error: [
-      $baseViewStyle,
-      {
-        color: colors.danger600,
-        borderColor: colors.danger300,
-        backgroundColor: colors.danger100,
-      },
-    ] as StyleProp<ViewStyle>,
+  const $viewPresets: Record<ChipPresets, ViewStyle> = {
+    info: {
+      ...$baseViewStyle,
+      borderColor: colors.info300,
+      backgroundColor: colors.info100,
+    },
+    success: {
+      ...$baseViewStyle,
+      borderColor: colors.success300,
+      backgroundColor: colors.success100,
+    },
+    warning: {
+      ...$baseViewStyle,
+      borderColor: colors.warning300,
+      backgroundColor: colors.warning100,
+    },
+    error: {
+      ...$baseViewStyle,
+      borderColor: colors.danger300,
+      backgroundColor: colors.danger100,
+    },
   };
 
-  const $sizePresets: Record<SizePresets, StyleProp<ViewStyle>> = {
+  const $sizePresets: Record<SizePresets, ViewStyle> = {
+    xs: {
+      paddingVertical: spacing.xxs,
+      paddingHorizontal: spacing.xs,
+    },
     sm: {
       paddingVertical: spacing.xs,
       paddingHorizontal: spacing.sm,
@@ -103,25 +96,43 @@ export function Chip(props: ChipProps) {
       paddingVertical: spacing.md,
       paddingHorizontal: spacing.lg,
     },
-    xs: {
-      paddingVertical: spacing.xxs,
-      paddingHorizontal: spacing.xs,
-    },
+  };
+
+  const $textColors: Record<ChipPresets, string> = {
+    info: colors.info600,
+    error: colors.danger600,
+    success: colors.success600,
+    warning: colors.warning600,
+  };
+
+  const $textStyle: StyleProp<TextStyle> = {
+    color: $textColors[preset],
+  };
+
+  const $variantStyle: ViewStyle = {
+    borderWidth: variant === 'outline' ? 1 : 0,
   };
 
   const $viewStyle: StyleProp<ViewStyle> = [
-    $viewPresets[preset],
+    style,
+    $variantStyle,
     $sizePresets[size],
-    {
-      borderWidth: variant === 'outline' ? 1 : 0,
-    },
-  ];
+    $viewPresets[preset],
+  ].filter(Boolean);
 
   return (
     <View style={$viewStyle} {...rest}>
-      <Text size={size} text={text}>
+      <Text size={size} text={text} style={$textStyle}>
         {children}
       </Text>
     </View>
   );
 }
+
+/**
+ * The display name of the `Chip` component.
+ * @type {string}
+ */
+Chip.displayName = 'Chip';
+
+export default Chip;
