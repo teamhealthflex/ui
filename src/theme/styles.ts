@@ -140,7 +140,7 @@ export const useCustomStyles = () => {
       alignItems: 'center',
       paddingLeft: spacing.sm,
       justifyContent: 'flex-start',
-      height: spacing.header_height,
+      height: spacing.xxxl,
     },
     headerIconRight: {
       display: 'flex',
@@ -148,7 +148,7 @@ export const useCustomStyles = () => {
       alignItems: 'center',
       paddingLeft: spacing.xs,
       justifyContent: 'flex-end',
-      height: spacing.header_height,
+      height: spacing.xxxl,
     },
     inputContainer: {
       marginBottom: spacing.sm,
