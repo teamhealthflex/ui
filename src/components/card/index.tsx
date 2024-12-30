@@ -263,26 +263,26 @@ export function Card(props: CardProps) {
   ];
 
   const $headingStyle = [
-    $headingStyleOverride,
     $headingPresets[preset],
-    HeadingTextProps?.style,
     (isFooterPresent || isContentPresent) && { marginBottom: spacing.xxxs },
-  ];
+    $headingStyleOverride,
+    HeadingTextProps?.style,
+  ].filter(Boolean);
 
   const $contentStyle = [
-    $contentStyleOverride,
     $contentPresets[preset],
     ContentTextProps?.style,
     isHeadingPresent && { marginTop: spacing.xxxs },
     isFooterPresent && { marginBottom: spacing.xxxs },
-  ];
+    $contentStyleOverride,
+  ].filter(Boolean);
 
   const $footerStyle = [
-    $footerStyleOverride,
     $footerPresets[preset],
     FooterTextProps?.style,
     (isHeadingPresent || isContentPresent) && { marginTop: spacing.xxxs },
-  ];
+    $footerStyleOverride,
+  ].filter(Boolean);
 
   const $alignmentWrapperStyle = [
     $alignmentWrapper,
@@ -290,7 +290,7 @@ export function Card(props: CardProps) {
     RightComponent && { marginEnd: spacing.md },
     LeftComponent && { marginStart: spacing.md },
     { justifyContent: $alignmentWrapperFlexOptions[verticalAlignment] },
-  ];
+  ].filter(Boolean);
 
   const RenderHeading =
     HeadingComponent ||
@@ -321,11 +321,13 @@ export function Card(props: CardProps) {
       {...WrapperProps}
     >
       {LeftComponent}
+
       <View style={$alignmentWrapperStyle}>
         {RenderHeading}
         {RenderContent}
         {RenderFooter}
       </View>
+
       {RightComponent}
     </Wrapper>
   );

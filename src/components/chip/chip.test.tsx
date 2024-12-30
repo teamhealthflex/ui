@@ -7,6 +7,7 @@ import Text from '@components/text';
 describe('Chip Component', () => {
   it('renders text passed as prop', () => {
     const { getByText } = render(<Chip text="Hello Chip" />);
+
     expect(getByText('Hello Chip')).toBeTruthy();
   });
 
@@ -16,6 +17,7 @@ describe('Chip Component', () => {
         <Text text="Nested Chip" />
       </Chip>,
     );
+
     expect(getByText('Nested Chip')).toBeTruthy();
   });
 
@@ -89,6 +91,7 @@ describe('Chip Component', () => {
       <Chip text="Accessible Chip" testID="test-chip" accessibilityLabel="Test Label" />,
     );
     const chipComponent = getByTestId('test-chip');
+
     expect(chipComponent.props.accessibilityLabel).toBe('Test Label');
   });
 
@@ -112,6 +115,7 @@ describe('Chip Component', () => {
   it('handles empty text properly', () => {
     const { getByTestId } = render(<Chip text="" testID="chip" />);
     const chipComponent = getByTestId('chip');
+
     expect(chipComponent).toBeTruthy();
   });
 });
