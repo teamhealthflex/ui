@@ -361,3 +361,11 @@ export function ActivityRing(props: ActivityRingProps) {
     </View>
   );
 }
+
+/**
+ * The display name of the `ActivityRing` component.
+ * @type {string}
+ */
+ActivityRing.displayName = 'ActivityRing';
+
+export default ActivityRing;

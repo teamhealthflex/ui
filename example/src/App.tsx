@@ -6,6 +6,7 @@ import {
   TextField,
   ActivityRing,
   ThemeProvider,
+  CountDownTimer,
   CircularProgress,
 } from '@teamhealthflex/ui';
 
@@ -80,6 +81,14 @@ export default function App() {
             title="Activity Progress"
             containerStyle={styles.activityRingContainer}
           />
+
+          {/* Demo CountDownTimer Component */}
+          <CountDownTimer
+            initialTime={10} // Set initial time to 10 seconds
+            onFinish={() => console.log('Countdown finished!')}
+            style={styles.timerContainer}
+            textStyle={styles.timerText}
+          />
         </ScrollView>
       </View>
     </ThemeProvider>
@@ -127,5 +136,14 @@ const styles = StyleSheet.create({
   activityRingContainer: {
     marginVertical: 20,
     alignItems: 'center',
+  },
+  timerContainer: {
+    marginVertical: 20,
+    alignItems: 'center',
+  },
+  timerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#000',
   },
 });
