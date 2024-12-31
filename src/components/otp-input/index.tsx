@@ -28,7 +28,7 @@ export interface OTPInputProps extends TextProps {
 }
 
 export function OtpInput(props: OTPInputProps) {
-  const { pinCount = 4, onCodeFilled } = props;
+  const { pinCount = 4, onCodeFilled, ...rest } = props;
   const inputRefs = React.useRef<(TextInput | null)[]>([]);
   const focusedIndexRef = React.useRef<number | null>(null);
   const otp = React.useRef<string[]>(Array(pinCount).fill(''));
@@ -139,12 +139,15 @@ export function OtpInput(props: OTPInputProps) {
       onChangeText={(value) => handleChange(value, index)}
       onKeyPress={(event) => handleKeyPress(event, index)}
       autoComplete={Platform.OS === 'android' ? 'sms-otp' : 'one-time-code'}
+      {...rest}
     />
   ));
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={$container}>{inputs}</View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} {...rest}>
+      <View style={$container} {...rest}>
+        {inputs}
+      </View>
     </TouchableWithoutFeedback>
   );
 }
