@@ -3,13 +3,14 @@ import {
   Text,
   Card,
   Chip,
+  Icon,
+  OtpInput,
   TextField,
   ActivityRing,
   ThemeProvider,
   CountDownTimer,
   CircularProgress,
   DailyCalendarStats,
-  Icon,
 } from '@teamhealthflex/ui';
 
 import { storage } from './storage';
@@ -111,6 +112,12 @@ export default function App() {
             footerMessages={footerMessages}
             noDaysMessage="No data for this week."
           />
+
+          {/* Demo OtpInput Component */}
+          <View style={styles.otpInputContainer}>
+            <Text style={styles.otpInputLabel}>Enter OTP</Text>
+            <OtpInput pinCount={4} />
+          </View>
         </ScrollView>
       </View>
     </ThemeProvider>
@@ -167,5 +174,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#000',
     fontWeight: 'bold',
+  },
+  otpInputContainer: {
+    width: '100%',
+    marginVertical: 20,
+    alignItems: 'center',
+  },
+  otpInputLabel: {
+    fontSize: 16,
+    marginBottom: 10,
   },
 });
