@@ -1,5 +1,6 @@
 export * from './text';
 export * from './chip';
+export * from './icon';
 export * from './card';
 export * from './text-field';
 export * from './activity-rings';

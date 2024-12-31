@@ -3230,6 +3230,7 @@ __metadata:
     eslint-plugin-prettier: ^5.0.1
     eslint-plugin-testing-library: ^7.1.1
     expo-linear-gradient: ^14.0.1
+    expo-modules-core: ^2.1.2
     jest: ^29.7.0
     prettier: ^3.0.3
     react: 18.3.1
@@ -6821,6 +6822,15 @@ __metadata:
   dependencies:
     invariant: ^2.2.4
   checksum: 3453031fe63d3230bd50fcd2e47cd2da559f6b0b284664956c498da6e54a163d77269ab455ca7f09c51ab41915479b61abb13c5ea30ee75bf6f5a22ec3becced
+  languageName: node
+  linkType: hard
+
+"expo-modules-core@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "expo-modules-core@npm:2.1.2"
+  dependencies:
+    invariant: ^2.2.4
+  checksum: 2d9cc22127755a6fc8432bc928db8d76d702faadf86d74c2364f236ce1f410a2826eba485e6b6566005a3b273ca80f8fa501e06f626b0a4a7e2ef4ecf0bdb720
   languageName: node
   linkType: hard
 

@@ -9,6 +9,7 @@ import {
   CountDownTimer,
   CircularProgress,
   DailyCalendarStats,
+  Icon,
 } from '@teamhealthflex/ui';
 
 import { storage } from './storage';
@@ -67,6 +68,7 @@ export default function App() {
             footer="Footer text"
             raised={true}
             style={styles.card}
+            LeftComponent={<Icon icon="star" size={24} color="#FFD700" />}
           />
 
           {/* Demo TextField Component */}

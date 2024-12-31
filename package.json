@@ -168,6 +168,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.4",
     "expo-linear-gradient": "^14.0.1",
+    "expo-modules-core": "^2.1.2",
     "react-hook-form": "^7.54.2",
     "react-native-responsive-fontsize": "^0.5.1",
     "react-native-safe-area-context": "^5.0.0",
