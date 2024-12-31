@@ -2253,7 +2253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@expo/vector-icons@npm:^14.0.0":
+"@expo/vector-icons@npm:^14.0.0, @expo/vector-icons@npm:^14.0.4":
   version: 14.0.4
   resolution: "@expo/vector-icons@npm:14.0.4"
   dependencies:
@@ -3214,6 +3214,7 @@ __metadata:
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
+    "@expo/vector-icons": ^14.0.4
     "@react-native/eslint-config": ^0.73.1
     "@release-it/conventional-changelog": ^9.0.2
     "@testing-library/jest-native": ^5.4.3
@@ -3228,6 +3229,7 @@ __metadata:
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.1
     eslint-plugin-testing-library: ^7.1.1
+    expo-linear-gradient: ^14.0.1
     jest: ^29.7.0
     prettier: ^3.0.3
     react: 18.3.1
@@ -6781,6 +6783,17 @@ __metadata:
     expo: "*"
     react: "*"
   checksum: 67a099a1efce432b63890dcfb51f085bf02f2375590882fd8cf8a7d0251ff8512f52ab0d421b08613b67642d373dbee21420585246d25a427ec1776a1c4af485
+  languageName: node
+  linkType: hard
+
+"expo-linear-gradient@npm:^14.0.1":
+  version: 14.0.1
+  resolution: "expo-linear-gradient@npm:14.0.1"
+  peerDependencies:
+    expo: "*"
+    react: "*"
+    react-native: "*"
+  checksum: 8498a6d9888652bcde690f738fc3e00ec7c33ca251275135be73cecd0f7960c635b0c87aa4f73e681c907edcd52764d8a6b29fea3386ee9a74e59ea617d7e228
   languageName: node
   linkType: hard
 

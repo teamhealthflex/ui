@@ -5,3 +5,4 @@ export * from './text-field';
 export * from './activity-rings';
 export * from './countdown-timer';
 export * from './circular-progress';
+export * from './daily-calendar-stats';

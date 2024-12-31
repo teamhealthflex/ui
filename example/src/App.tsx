@@ -8,6 +8,7 @@ import {
   ThemeProvider,
   CountDownTimer,
   CircularProgress,
+  DailyCalendarStats,
 } from '@teamhealthflex/ui';
 
 import { storage } from './storage';
@@ -36,6 +37,18 @@ export default function App() {
       activeStrokeSecondaryColor: '#900C3F',
     },
   ];
+
+  const days = [
+    { day: 'Mon', date: '1', checked: true },
+    { day: 'Tue', date: '2', checked: false },
+    { day: 'Wed', date: '3', checked: true },
+    { day: 'Thu', date: '4', checked: false },
+    { day: 'Fri', date: '5', checked: true },
+    { day: 'Sat', date: '6', checked: false },
+    { day: 'Sun', date: '7', checked: false },
+  ];
+
+  const footerMessages = ['Great! You’ve exercised 5 days!', 'Keep up the good work!'];
 
   return (
     <ThemeProvider storage={storage} defaultTheme="light" storageKey="HF_THEME_STORAGE">
@@ -88,6 +101,13 @@ export default function App() {
             onFinish={() => console.log('Countdown finished!')}
             style={styles.timerContainer}
             textStyle={styles.timerText}
+          />
+
+          {/* Daily Calendar Stats Component */}
+          <DailyCalendarStats
+            days={days}
+            footerMessages={footerMessages}
+            noDaysMessage="No data for this week."
           />
         </ScrollView>
       </View>
@@ -143,7 +163,7 @@ const styles = StyleSheet.create({
   },
   timerText: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
   },
 });

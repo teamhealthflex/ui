@@ -9,7 +9,7 @@ const config: Config = {
     '^.+\\.(ts|tsx)$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|@react-native|react-native-gesture-handler)/)',
+    'node_modules/(?!(react-native|@react-native|react-native-gesture-handler|@expo/vector-icons|expo-linear-gradient|expo-modules-core)/)',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/lib/', '<rootDir>/example/node_modules'],
