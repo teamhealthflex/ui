@@ -26,5 +26,6 @@ export * from './value-progressbar';
 export * from './circular-progress';
 export * from './daily-calendar-stats';
 export * from './focus-aware-status-bar';
+export * from './play-instruction-video';
 export * from './multi-value-progressbar';
 export * from './regimen-filters-bottomsheet';
