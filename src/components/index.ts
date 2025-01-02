@@ -23,4 +23,5 @@ export * from './countdown-timer';
 export * from './value-progressbar';
 export * from './circular-progress';
 export * from './daily-calendar-stats';
+export * from './focus-aware-status-bar';
 export * from './multi-value-progressbar';
