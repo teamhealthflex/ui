@@ -67,6 +67,8 @@ const palette = {
   gradient100: '#48D6E0',
   gradient200: '#3CE0C6',
   gradient300: '#2AEEA2',
+
+  transparent: 'rgba(0, 0, 0, 0)',
 } as const;
 
 /**
@@ -92,6 +94,7 @@ const DarkTheme = {
   background: palette.black500,
   notification: palette.danger500,
   secondary: palette.secondary200,
+  transparent: 'rgba(0, 0, 0, 0)',
 };
 
 /**
@@ -112,6 +115,7 @@ const LightTheme = {
   background: palette.white100,
   notification: palette.danger500,
   secondary: palette.secondary300,
+  transparent: 'rgba(0, 0, 0, 0)',
 };
 
 /**

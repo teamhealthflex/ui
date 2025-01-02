@@ -270,7 +270,7 @@ export const TextField = React.forwardRef(function TextField(
             textAlignVertical="center"
             placeholder={placeholderContent}
             placeholderTextColor={colors.grey400}
-            underlineColorAndroid={'rgba(0, 0, 0, 0)'}
+            underlineColorAndroid={colors.transparent}
             {...textInputProps}
           />
 

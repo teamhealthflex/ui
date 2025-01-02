@@ -4,6 +4,7 @@ import {
   Card,
   Chip,
   Icon,
+  Toggle,
   OtpInput,
   TextField,
   ActivityRing,
@@ -14,6 +15,7 @@ import {
 } from '@teamhealthflex/ui';
 
 import { storage } from './storage';
+import React from 'react';
 
 export default function App() {
   const rings = [
@@ -51,6 +53,8 @@ export default function App() {
   ];
 
   const footerMessages = ['Great! You’ve exercised 5 days!', 'Keep up the good work!'];
+
+  const [isChecked, setIsChecked] = React.useState(false);
 
   return (
     <ThemeProvider storage={storage} defaultTheme="light" storageKey="HF_THEME_STORAGE">
@@ -118,6 +122,88 @@ export default function App() {
             <Text style={styles.otpInputLabel}>Enter OTP</Text>
             <OtpInput pinCount={4} />
           </View>
+
+          {/* Demo Toggle Component */}
+          <Toggle
+            variant="checkbox"
+            value={isChecked}
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            variant="radio"
+            value={isChecked}
+            containerStyle={styles.top}
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            variant="switch"
+            value={isChecked}
+            containerStyle={styles.top}
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            variant="switch"
+            value={isChecked}
+            containerStyle={styles.top}
+            switchAccessibilityMode="text"
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            variant="switch"
+            value={isChecked}
+            containerStyle={styles.top}
+            switchAccessibilityMode="icon"
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            status="error"
+            variant="checkbox"
+            value={isChecked}
+            containerStyle={styles.top}
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            variant="checkbox"
+            status="disabled"
+            value={isChecked}
+            containerStyle={styles.top}
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            label="Toggle"
+            value={isChecked}
+            variant="checkbox"
+            labelPosition="right"
+            containerStyle={styles.top}
+            inputOuterStyle={{ backgroundColor: 'red' }}
+            inputInnerStyle={{ backgroundColor: 'green' }}
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            variant="checkbox"
+            value={isChecked}
+            labelPosition="right"
+            containerStyle={styles.top}
+            onValueChange={(value) => setIsChecked(value)}
+          />
+
+          <Toggle
+            variant="checkbox"
+            value={isChecked}
+            labelPosition="right"
+            containerStyle={styles.top}
+            helper="This is a helper text"
+            label="Toggle with helper text"
+            onValueChange={(value) => setIsChecked(value)}
+          />
         </ScrollView>
       </View>
     </ThemeProvider>
@@ -183,5 +269,10 @@ const styles = StyleSheet.create({
   otpInputLabel: {
     fontSize: 16,
     marginBottom: 10,
+  },
+  top: {
+    padding: 50,
+    marginTop: 10,
+    backgroundColor: 'pink',
   },
 });
