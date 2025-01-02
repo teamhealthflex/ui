@@ -310,11 +310,14 @@ export function Toggle(props: ToggleProps) {
 
   const disabled = editable === false || status === 'disabled' || props.disabled;
 
-  const Wrapper = disabled
-    ? View
-    : (TouchableOpacity as React.ComponentType<TouchableOpacityProps | ViewProps>);
-
-  const ToggleInput = ToggleInputs[variant] || (() => null);
+  const Wrapper = React.useMemo(
+    () =>
+      (disabled ? View : TouchableOpacity) as React.ComponentType<
+        TouchableOpacityProps | ViewProps
+      >,
+    [disabled],
+  );
+  const ToggleInput = React.useMemo(() => ToggleInputs[variant] || (() => null), [variant]);
 
   const $containerStyles = [$containerStyleOverride];
   const $inputWrapperStyles = [BaseStyles.inputWrapper, $inputWrapperStyleOverride];

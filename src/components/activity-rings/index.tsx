@@ -182,7 +182,7 @@ export function ActivityRing(props: ActivityRingProps) {
 
   const $legendText: TextStyle = {
     ...fontSizes.sm,
-    color: colors.primary300,
+    color: colors.primary,
   };
 
   const $valueText: TextStyle = {
@@ -206,7 +206,7 @@ export function ActivityRing(props: ActivityRingProps) {
   /**
    * Secondary default colors for activity rings (for gradients)
    */
-  const secondaryDefaultColors = [colors.gradient100, colors.primary300, 'orange', 'pink'];
+  const secondaryDefaultColors = [colors.gradient100, colors.primary, 'orange', 'pink'];
 
   const MAX_VALUE = 100;
 

@@ -152,8 +152,8 @@ export const iconRegistry = {
   'check': require('../../../example/assets/icons/check.png'),
   'hidden': require('../../../example/assets/icons/hidden.png'),
   //   'exercise': require('@assets/icons/exercise.png'),
-  //   'ai-guided': require('@assets/icons/ai.png'),
-  //   'self-guided': require('@assets/icons/selfguided.png'),
+  'ai-guided': require('./../../example/assets/icons/ai.png'),
+  'self-guided': require('./../../example/assets/icons/selfguided.png'),
 
   /**
    * vector icons from the expo vector icons library
@@ -163,7 +163,6 @@ export const iconRegistry = {
   'camera': <Feather name="camera" />,
   'stop': <MaterialIcons name="stop" />,
   'edit': <MaterialIcons name="edit" />,
-  // 'check': <MaterialIcons name="check" />,
   'pause': <MaterialIcons name="pause" />,
   'clear': <Ionicons name="close-outline" />,
   'checkmark': <Ionicons name="checkmark" />,
@@ -200,3 +199,11 @@ export const iconRegistry = {
   'arrow-down': <MaterialIcons name="keyboard-arrow-down" />,
   'arm_flex': <MaterialCommunityIcons name="arm-flex-outline" />,
 };
+
+/**
+ * The display name of the `Icon` component.
+ * @type {string}
+ */
+Icon.displayName = 'Icon';
+
+export default Icon;

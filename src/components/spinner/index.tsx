@@ -1,6 +1,6 @@
 import React from 'react';
 import LottieView from 'lottie-react-native';
-import { View, TextStyle, ViewStyle, AccessibilityProps } from 'react-native';
+import { View, TextStyle, ViewStyle, AccessibilityProps, StyleProp } from 'react-native';
 
 import { Text } from '../text';
 import { fontSizes } from '@theme';
@@ -11,12 +11,17 @@ import loading from '../../../example/assets/lottie/loading.json';
 export interface SpinnerProps extends AccessibilityProps {
   color?: string;
   active: boolean;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   showLogo?: boolean;
   showContent?: boolean;
   children?: React.ReactNode;
 }
 
+/**
+ * The `Spinner` component.
+ * @param {SpinnerProps} props - The props for the `Spinner` component.
+ * @returns {JSX.Element} The rendered `Spinner` component.
+ */
 export function Spinner(props: SpinnerProps) {
   const {
     children,
@@ -24,6 +29,7 @@ export function Spinner(props: SpinnerProps) {
     showLogo = false,
     showContent = true,
     color = 'transparent',
+    style: $styleOverride = {},
     ...rest
   } = props;
 
@@ -33,32 +39,60 @@ export function Spinner(props: SpinnerProps) {
     return <>{children}</>;
   }
 
-  const $container: ViewStyle = {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
-  const $text: TextStyle = {
-    ...fontSizes.md,
-    width: '100%',
-    textAlign: 'center',
-    color: colors.primary300,
-  };
-
-  const $image: ViewStyle = {
-    width: 80,
-    height: 80,
-  };
+  const preset: SpinnerPresets = showLogo ? 'withLogo' : showContent ? 'withContent' : 'default';
+  const $styles: StyleProp<ViewStyle> = [
+    $presets[preset],
+    { backgroundColor: color },
+    $styleOverride,
+  ];
 
   return (
-    <View style={[$container, { backgroundColor: color }, props.style]} {...rest}>
+    <View style={$styles} {...rest}>
       {showLogo && <ScreenLogo />}
-      <LottieView autoPlay loop={true} style={$image} source={loading} />
-      {showContent && !showLogo && <Text style={$text}>Please Wait ...</Text>}
+      <LottieView autoPlay loop={true} style={$imageStyle} source={loading} />
+      {showContent && !showLogo && (
+        <Text style={[$textStyle, { color: colors.primary }]}>Please Wait ...</Text>
+      )}
     </View>
   );
 }
+
+/**
+ * Presets for the `Spinner` component.
+ */
+export type SpinnerPresets = 'default' | 'withLogo' | 'withContent';
+
+/**
+ * Styles for the `Spinner` component.
+ */
+const $baseStyle: ViewStyle = {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+const $presets: Record<SpinnerPresets, ViewStyle> = {
+  default: $baseStyle,
+  withLogo: {
+    ...$baseStyle,
+    backgroundColor: 'transparent',
+  },
+  withContent: {
+    ...$baseStyle,
+    backgroundColor: 'transparent',
+  },
+};
+
+const $textStyle: TextStyle = {
+  ...fontSizes.md,
+  width: '100%',
+  textAlign: 'center',
+};
+
+const $imageStyle: ViewStyle = {
+  width: 80,
+  height: 80,
+};
 
 /**
  * The display name of the `Spinner` component.

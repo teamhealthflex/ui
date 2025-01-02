@@ -15,8 +15,19 @@ export function extractDateNumberAndDay(isoString: string): { dateNumber: number
   return { dateNumber: dateNumber, day: day };
 }
 
+// function to extract date from the iso string
+export function extractDate(isoString: Date | undefined): string {
+  if (isoString === undefined) return '';
+  const date = new Date(isoString);
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are 0-based, so add 1
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  return `${day}-${month}-${year}`;
+}
+
 const utils = {
   toTitleCase,
+  extractDate,
   extractDateNumberAndDay,
 };
 

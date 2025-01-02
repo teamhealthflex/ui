@@ -94,7 +94,7 @@ export function UserAvatar(props: UserAvatarProps) {
   };
 
   const $subTitle: TextStyle = {
-    color: colors.primary300,
+    color: colors.primary,
   };
 
   const $viewStyle = [$container, disabled && styles.disabled, style && style];
