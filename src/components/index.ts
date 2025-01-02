@@ -21,6 +21,7 @@ export * from './screen-logo';
 export * from './modal-sheet';
 export * from './scroll-view';
 export * from './user-avatar';
+export * from './empty-state';
 export * from './session-card';
 export * from './regimen-card';
 export * from './rom-progress';

@@ -193,4 +193,10 @@ export function FlatList<T>({
 
 const $defaultStyle: ViewStyle = { flex: 1 };
 
+/**
+ * The display name of the `FlatList` component.
+ * @type {string}
+ */
+FlatList.displayName = 'FlatList';
+
 export default FlatList;
