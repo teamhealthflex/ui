@@ -17,6 +17,7 @@ export * from './modal-sheet';
 export * from './scroll-view';
 export * from './user-avatar';
 export * from './session-card';
+export * from './star-question';
 export * from './activity-rings';
 export * from './countdown-timer';
 export * from './value-progressbar';

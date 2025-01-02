@@ -2717,6 +2717,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@kolking/react-native-rating@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@kolking/react-native-rating@npm:1.4.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 624e786e43d6b15dbb366b55641d094a037498d23b2672e08ed3d4117feacac55264ba84cf7c5dbcbfebc2b86e4303cee2b90d5dd309399ed0c1836326d40734
+  languageName: node
+  linkType: hard
+
 "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1":
   version: 5.1.1-v1
   resolution: "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1"
@@ -3261,6 +3271,7 @@ __metadata:
     "@evilmartians/lefthook": ^1.5.0
     "@expo/vector-icons": ^14.0.4
     "@gorhom/bottom-sheet": ^5.0.6
+    "@kolking/react-native-rating": ^1.4.0
     "@react-native/eslint-config": ^0.73.1
     "@release-it/conventional-changelog": ^9.0.2
     "@testing-library/jest-native": ^5.4.3
