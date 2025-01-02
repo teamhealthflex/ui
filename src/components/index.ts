@@ -3,6 +3,7 @@ export * from './chip';
 export * from './icon';
 export * from './card';
 export * from './image';
+export * from './modal';
 export * from './button';
 export * from './toggle';
 export * from './slider';
