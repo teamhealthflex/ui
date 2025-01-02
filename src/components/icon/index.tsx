@@ -195,6 +195,7 @@ export const iconRegistry = {
   'stability_score': <MaterialIcons name="legend-toggle" />,
   'docChat': <Ionicons name="chatbubble-ellipses-outline" />,
   'chevron-down': <Ionicons name="chevron-down-outline" />,
+  'chevron-right': <MaterialIcons name="arrow-forward-ios" />,
   'correctness': <Ionicons name="checkmark-circle-outline" />,
   'arrow-down': <MaterialIcons name="keyboard-arrow-down" />,
   'arm_flex': <MaterialCommunityIcons name="arm-flex-outline" />,

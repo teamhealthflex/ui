@@ -7,13 +7,13 @@ import { spacing } from '@theme';
 import { useTheme } from '@contexts';
 import { Button } from '@teamhealthflex/ui';
 
-export interface Regimen {
+export interface RegimenData {
   _id: string;
   name: string;
 }
 
 export interface RegimenFiltersBottomSheetProps {
-  data?: Regimen[];
+  data?: RegimenData[];
   size?: SizePreset;
   loading?: boolean;
   disabled?: boolean;
