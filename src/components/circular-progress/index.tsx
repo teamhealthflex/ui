@@ -61,6 +61,7 @@ export function CircularProgress(props: CircularProgressProps) {
     secondaryColor = '#2AEEA2',
     backgroundStrokeColor = '#E0E0E0',
     children,
+    ...rest
   } = props;
 
   const { colors } = useTheme();
@@ -111,7 +112,7 @@ export function CircularProgress(props: CircularProgressProps) {
   const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
   return (
-    <View style={[$container, { width: size, height: size }]}>
+    <View style={[$container, { width: size, height: size }]} {...rest}>
       <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         {/* Define the gradient */}
         <Defs>

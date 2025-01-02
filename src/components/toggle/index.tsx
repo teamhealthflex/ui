@@ -172,29 +172,29 @@ export interface ToggleInputProps {
 
 const BaseStyles = {
   inputOuter: {
-    height: spacing.lg,
-    width: spacing.lg,
-    borderWidth: 2,
-    alignItems: 'center',
-    overflow: 'hidden',
     flexGrow: 0,
     flexShrink: 0,
-    justifyContent: 'space-between',
+    borderWidth: 2,
+    width: spacing.lg,
+    height: spacing.lg,
+    overflow: 'hidden',
+    alignItems: 'center',
     flexDirection: 'row',
+    justifyContent: 'space-between',
   } as ViewStyle,
 
   inputInner: {
     width: '100%',
     height: '100%',
+    overflow: 'hidden',
     alignItems: 'center',
     justifyContent: 'center',
-    overflow: 'hidden',
   } as ViewStyle,
 
   inputWrapper: {
     flexGrow: 0,
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     alignContent: 'center',
     justifyContent: 'center',
   } as ViewStyle,
@@ -225,6 +225,7 @@ const VariantStyles = {
       resizeMode: 'contain',
     } as ImageStyle,
   },
+
   radio: {
     outer: [BaseStyles.inputOuter, { height: spacing.md, width: spacing.md, borderRadius: 12 }],
     detail: {
@@ -233,38 +234,44 @@ const VariantStyles = {
       borderRadius: 4,
     } as ViewStyle,
   },
+
   switch: {
     outer: [BaseStyles.inputOuter, { height: 32, width: 56, borderRadius: 16, borderWidth: 0 }],
     inner: {
       width: '100%',
       height: '100%',
-      alignItems: 'center',
-      overflow: 'hidden',
-      position: 'absolute',
-      paddingStart: 4,
       paddingEnd: 4,
-    } as ViewStyle,
-    detail: {
-      borderRadius: 12,
+      paddingStart: 4,
+      overflow: 'hidden',
+      alignItems: 'center',
       position: 'absolute',
+    } as ViewStyle,
+
+    detail: {
       width: 24,
       height: 24,
+      borderRadius: 12,
+      position: 'absolute',
     } as ViewStyle,
+
     accessibility: {
       base: {
         width: '40%',
         alignItems: 'center',
         justifyContent: 'center',
       } as ViewStyle,
+
       icon: {
         width: 14,
         height: 14,
         resizeMode: 'contain',
       } as ImageStyle,
+
       line: {
         width: 2,
         height: 12,
       } as ViewStyle,
+
       circle: {
         width: 12,
         height: 12,
@@ -283,14 +290,14 @@ const VariantStyles = {
  */
 export function Toggle(props: ToggleProps) {
   const {
-    editable = true,
-    variant = 'checkbox',
     value,
     status,
+    helper,
     onPress,
     onValueChange,
-    helper,
     HelperTextProps,
+    editable = true,
+    variant = 'checkbox',
     labelPosition = 'right',
     containerStyle: $containerStyleOverride,
     inputWrapperStyle: $inputWrapperStyleOverride,
@@ -303,14 +310,11 @@ export function Toggle(props: ToggleProps) {
 
   const disabled = editable === false || status === 'disabled' || props.disabled;
 
-  const Wrapper = React.useMemo(
-    () =>
-      (disabled ? View : TouchableOpacity) as React.ComponentType<
-        TouchableOpacityProps | ViewProps
-      >,
-    [disabled],
-  );
-  const ToggleInput = React.useMemo(() => ToggleInputs[variant] || (() => null), [variant]);
+  const Wrapper = disabled
+    ? View
+    : (TouchableOpacity as React.ComponentType<TouchableOpacityProps | ViewProps>);
+
+  const ToggleInput = ToggleInputs[variant] || (() => null);
 
   const $containerStyles = [$containerStyleOverride];
   const $inputWrapperStyles = [BaseStyles.inputWrapper, $inputWrapperStyleOverride];
@@ -548,31 +552,31 @@ function Switch(props: ToggleInputProps) {
   ].find((v) => typeof v === 'number');
 
   const offBackgroundColor = [
+    colors.primary300,
     disabled ? colors.primary100 : undefined,
     status === 'error' ? colors.danger100 : undefined,
-    colors.primary300,
   ].filter(Boolean)[0];
 
   const onBackgroundColor = [
+    colors.primary500,
     disabled ? colors.transparent : undefined,
     status === 'error' ? colors.danger100 : undefined,
-    colors.primary500,
   ].filter(Boolean)[0];
 
   const knobBackgroundColor = (function () {
     if (on) {
       return [
-        $detailStyleOverride?.backgroundColor,
-        status === 'error' ? colors.danger500 : undefined,
-        disabled ? colors.primary500 : undefined,
         colors.white100,
+        $detailStyleOverride?.backgroundColor,
+        disabled ? colors.primary500 : undefined,
+        status === 'error' ? colors.danger500 : undefined,
       ].filter(Boolean)[0];
     } else {
       return [
+        colors.white200,
         $innerStyleOverride?.backgroundColor,
         disabled ? colors.primary500 : undefined,
         status === 'error' ? colors.danger500 : undefined,
-        colors.white200,
       ].filter(Boolean)[0];
     }
   })();
@@ -702,7 +706,7 @@ function FieldLabel(props: BaseToggleProps) {
 
   const { colors } = useTheme();
 
-  //   if (!label && !LabelTextProps?.children) return null;
+  if (!label && !LabelTextProps?.children) return null;
 
   const $labelStyle = [
     BaseStyles.label,

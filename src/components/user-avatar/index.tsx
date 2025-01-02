@@ -39,16 +39,13 @@ export function UserAvatar(props: UserAvatarProps) {
   const { colors } = useTheme();
   const { styles } = useCustomStyles();
 
-  const containerStyle = React.useMemo(
-    () => ({
-      width: avatarSize,
-      height: avatarSize,
-      borderRadius: avatarSize / 2,
-      backgroundColor: avatar ? 'transparent' : backgroundColor,
-      overflow: 'hidden' as 'hidden',
-    }),
-    [avatarSize, avatar, backgroundColor],
-  );
+  const containerStyle = {
+    width: avatarSize,
+    height: avatarSize,
+    borderRadius: avatarSize / 2,
+    overflow: 'hidden' as 'hidden',
+    backgroundColor: avatar ? 'transparent' : backgroundColor,
+  };
 
   const renderAvatar = React.useCallback(() => {
     if (avatar) {
