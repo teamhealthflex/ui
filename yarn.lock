@@ -3339,6 +3339,7 @@ __metadata:
     react-native: 0.76.3
     react-native-awesome-slider: ^2.9.0
     react-native-builder-bob: ^0.35.2
+    react-native-gifted-charts: ^1.4.51
     react-native-keyboard-controller: ^1.15.2
     react-native-reanimated: ^3.16.6
     react-native-responsive-fontsize: ^0.5.1
@@ -7541,6 +7542,16 @@ __metadata:
   version: 1.0.0
   resolution: "getenv@npm:1.0.0"
   checksum: 19ae5cad603a1cf1bcb8fa3bed48e00d062eb0572a4404c02334b67f3b3499f238383082b064bb42515e9e25c2b08aef1a3e3d2b6852347721aa8b174825bd56
+  languageName: node
+  linkType: hard
+
+"gifted-charts-core@npm:0.1.53":
+  version: 0.1.53
+  resolution: "gifted-charts-core@npm:0.1.53"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 94e192d47712b4aa3f7b1ae8f2cc40cfc3841f9669c17c0086d2a3d1afaf06dd167a8867839440c8c7485f35911416cc524f289241d8e3b8edb38cda5b94cb34
   languageName: node
   linkType: hard
 
@@ -12174,6 +12185,26 @@ __metadata:
   bin:
     bob: bin/bob
   checksum: 254a481e35e359391d249a89aaea8b334479f6bec5c55b840dd05ae48e7733237e2e47a07d27e1132c25b39a1a9b330f2c1e706622b0a00ba4dfcec8183efa56
+  languageName: node
+  linkType: hard
+
+"react-native-gifted-charts@npm:^1.4.51":
+  version: 1.4.51
+  resolution: "react-native-gifted-charts@npm:1.4.51"
+  dependencies:
+    gifted-charts-core: 0.1.53
+  peerDependencies:
+    expo-linear-gradient: "*"
+    react: "*"
+    react-native: "*"
+    react-native-linear-gradient: "*"
+    react-native-svg: "*"
+  peerDependenciesMeta:
+    expo-linear-gradient:
+      optional: true
+    react-native-linear-gradient:
+      optional: true
+  checksum: 001fbfa6183a33e88729f0149ff3b2fee48a28f078918822af6f30222de90d2b5353abc1e3ded8357ba0f555653cd5da58f43000431a973c05442e86e26c97fc
   languageName: node
   linkType: hard
 
