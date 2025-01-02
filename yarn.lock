@@ -3248,6 +3248,7 @@ __metadata:
     react: 18.3.1
     react-hook-form: ^7.54.2
     react-native: 0.76.3
+    react-native-awesome-slider: ^2.9.0
     react-native-builder-bob: ^0.35.2
     react-native-reanimated: ^3.16.6
     react-native-responsive-fontsize: ^0.5.1
@@ -12012,6 +12013,18 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-native-awesome-slider@npm:^2.9.0":
+  version: 2.9.0
+  resolution: "react-native-awesome-slider@npm:2.9.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: ">=2.0.0"
+    react-native-reanimated: ">=3.0.0"
+  checksum: a1a6179311a7a26fc8612c95722fccfd83422785d11e4c452bcc2afab2fd05f4aa1c5b9bcd07efe31d397f04aaa337f60772db3a850793ce69065080442fb3c9
   languageName: node
   linkType: hard
 

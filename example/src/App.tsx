@@ -12,6 +12,7 @@ import {
   CountDownTimer,
   CircularProgress,
   DailyCalendarStats,
+  Spinner,
 } from '@teamhealthflex/ui';
 
 import { storage } from './storage';
@@ -56,155 +57,166 @@ export default function App() {
 
   const [isChecked, setIsChecked] = React.useState(false);
 
+  const [isLoading, setIsLoading] = React.useState(true); // State to manage loading
+  // Simulate loading
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Set loading to false after 2 seconds
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <ThemeProvider storage={storage} defaultTheme="light" storageKey="HF_THEME_STORAGE">
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollViewContent}>
-          {/* Demo Text Component */}
-          <Text>text demo component</Text>
+        <Spinner active={isLoading} showLogo={true} showContent={true}>
+          <ScrollView contentContainerStyle={styles.scrollViewContent}>
+            {/* Demo Text Component */}
+            <Text>text demo component</Text>
 
-          {/* Demo Chip Component */}
-          <Chip text="Demo Chip" size="md" preset="info" variant="outline" style={styles.chip} />
+            {/* Demo Chip Component */}
+            <Chip text="Demo Chip" size="md" preset="info" variant="outline" style={styles.chip} />
 
-          {/* Demo Card Component */}
-          <Card
-            heading="Card Title"
-            content="This is the content of the card."
-            footer="Footer text"
-            raised={true}
-            style={styles.card}
-            LeftComponent={<Icon icon="star" size={24} color="#FFD700" />}
-          />
+            {/* Demo Card Component */}
+            <Card
+              heading="Card Title"
+              content="This is the content of the card."
+              footer="Footer text"
+              raised={true}
+              style={styles.card}
+              LeftComponent={<Icon icon="star" size={24} color="#FFD700" />}
+            />
 
-          {/* Demo TextField Component */}
-          <View style={styles.inputContainer}>
-            <TextField label="Name" placeholder="Enter your name" style={styles.input} />
-          </View>
+            {/* Demo TextField Component */}
+            <View style={styles.inputContainer}>
+              <TextField label="Name" placeholder="Enter your name" style={styles.input} />
+            </View>
 
-          {/* Demo CircularProgress Component */}
-          <CircularProgress
-            size={100}
-            progress={75}
-            centerText="75%"
-            strokeWidth={10}
-            primaryColor="#48D6E0"
-            secondaryColor="#2AEEA2"
-            backgroundStrokeColor="#E0E0E0"
-            centerTextStyle={styles.centerText}
-          />
+            {/* Demo CircularProgress Component */}
+            <CircularProgress
+              size={100}
+              progress={75}
+              centerText="75%"
+              strokeWidth={10}
+              primaryColor="#48D6E0"
+              secondaryColor="#2AEEA2"
+              backgroundStrokeColor="#E0E0E0"
+              centerTextStyle={styles.centerText}
+            />
 
-          {/* Demo ActivityRing Component */}
-          <ActivityRing
-            rings={rings}
-            radius={100}
-            showValueText={true}
-            title="Activity Progress"
-            containerStyle={styles.activityRingContainer}
-          />
+            {/* Demo ActivityRing Component */}
+            <ActivityRing
+              rings={rings}
+              radius={100}
+              showValueText={true}
+              title="Activity Progress"
+              containerStyle={styles.activityRingContainer}
+            />
 
-          {/* Demo CountDownTimer Component */}
-          <CountDownTimer
-            initialTime={10} // Set initial time to 10 seconds
-            onFinish={() => console.log('Countdown finished!')}
-            style={styles.timerContainer}
-            textStyle={styles.timerText}
-          />
+            {/* Demo CountDownTimer Component */}
+            <CountDownTimer
+              initialTime={10} // Set initial time to 10 seconds
+              onFinish={() => console.log('Countdown finished!')}
+              style={styles.timerContainer}
+              textStyle={styles.timerText}
+            />
 
-          {/* Daily Calendar Stats Component */}
-          <DailyCalendarStats
-            days={days}
-            footerMessages={footerMessages}
-            noDaysMessage="No data for this week."
-          />
+            {/* Daily Calendar Stats Component */}
+            <DailyCalendarStats
+              days={days}
+              footerMessages={footerMessages}
+              noDaysMessage="No data for this week."
+            />
 
-          {/* Demo OtpInput Component */}
-          <View style={styles.otpInputContainer}>
-            <Text style={styles.otpInputLabel}>Enter OTP</Text>
-            <OtpInput pinCount={4} />
-          </View>
+            {/* Demo OtpInput Component */}
+            <View style={styles.otpInputContainer}>
+              <Text style={styles.otpInputLabel}>Enter OTP</Text>
+              <OtpInput pinCount={4} />
+            </View>
 
-          {/* Demo Toggle Component */}
-          <Toggle
-            variant="checkbox"
-            value={isChecked}
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            {/* Demo Toggle Component */}
+            <Toggle
+              variant="checkbox"
+              value={isChecked}
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            variant="radio"
-            value={isChecked}
-            containerStyle={styles.top}
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              variant="radio"
+              value={isChecked}
+              containerStyle={styles.top}
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            variant="switch"
-            value={isChecked}
-            containerStyle={styles.top}
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              variant="switch"
+              value={isChecked}
+              containerStyle={styles.top}
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            variant="switch"
-            value={isChecked}
-            containerStyle={styles.top}
-            switchAccessibilityMode="text"
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              variant="switch"
+              value={isChecked}
+              containerStyle={styles.top}
+              switchAccessibilityMode="text"
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            variant="switch"
-            value={isChecked}
-            containerStyle={styles.top}
-            switchAccessibilityMode="icon"
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              variant="switch"
+              value={isChecked}
+              containerStyle={styles.top}
+              switchAccessibilityMode="icon"
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            status="error"
-            variant="checkbox"
-            value={isChecked}
-            containerStyle={styles.top}
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              status="error"
+              variant="checkbox"
+              value={isChecked}
+              containerStyle={styles.top}
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            variant="checkbox"
-            status="disabled"
-            value={isChecked}
-            containerStyle={styles.top}
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              variant="checkbox"
+              status="disabled"
+              value={isChecked}
+              containerStyle={styles.top}
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            label="Toggle"
-            value={isChecked}
-            variant="checkbox"
-            labelPosition="right"
-            containerStyle={styles.top}
-            inputOuterStyle={{ backgroundColor: 'red' }}
-            inputInnerStyle={{ backgroundColor: 'green' }}
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              label="Toggle"
+              value={isChecked}
+              variant="checkbox"
+              labelPosition="right"
+              containerStyle={styles.top}
+              inputOuterStyle={{ backgroundColor: 'red' }}
+              inputInnerStyle={{ backgroundColor: 'green' }}
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            variant="checkbox"
-            value={isChecked}
-            labelPosition="right"
-            containerStyle={styles.top}
-            onValueChange={(value) => setIsChecked(value)}
-          />
+            <Toggle
+              variant="checkbox"
+              value={isChecked}
+              labelPosition="right"
+              containerStyle={styles.top}
+              onValueChange={(value) => setIsChecked(value)}
+            />
 
-          <Toggle
-            variant="checkbox"
-            value={isChecked}
-            labelPosition="right"
-            containerStyle={styles.top}
-            helper="This is a helper text"
-            label="Toggle with helper text"
-            onValueChange={(value) => setIsChecked(value)}
-          />
-        </ScrollView>
+            <Toggle
+              variant="checkbox"
+              value={isChecked}
+              labelPosition="right"
+              containerStyle={styles.top}
+              helper="This is a helper text"
+              label="Toggle with helper text"
+              onValueChange={(value) => setIsChecked(value)}
+            />
+          </ScrollView>
+        </Spinner>
       </View>
     </ThemeProvider>
   );

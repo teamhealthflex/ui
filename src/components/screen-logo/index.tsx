@@ -6,7 +6,7 @@ export interface ScreenLogoProps {
   logoStyle?: StyleProp<ViewStyle>;
 }
 
-const logoWithTitle = require('@assets/images/logo/logo-with-title.png');
+const logoWithTitle = require('../../../example/assets/logo/logo-with-title.png');
 
 export function ScreenLogo(props: ScreenLogoProps) {
   const { logoStyle = {}, ...rest } = props;
@@ -19,13 +19,14 @@ export function ScreenLogo(props: ScreenLogoProps) {
     borderRadius: 10,
     alignSelf: 'center',
     flexDirection: 'row',
-    backgroundColor: '#edfbfc',
     ...styles.screenLogoBox,
+    backgroundColor: '#edfbfc',
   };
 
   const $logo: ImageStyle = {
+    width: '75%',
+    height: '90%',
     marginVertical: 5,
-    ...styles.screenLogo,
   };
 
   const image = <Image style={$logo} source={logoWithTitle} />;
