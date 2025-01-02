@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, LayoutChangeEvent, StyleProp, ViewStyle, StatusBar } from 'react-native';
+import { Animated, LayoutChangeEvent, StyleProp, ViewStyle } from 'react-native';
 
 import { layouts } from '@theme';
 
@@ -73,7 +73,7 @@ export type UseFlatList = [
 export const useFlatList = (): UseFlatList => {
   const scrollY = React.useRef(new Animated.Value(0)).current;
   const [heights, setHeights] = React.useState({
-    header: StatusBar.currentHeight,
+    header: layouts.statusBarHeight,
     sticky: 0,
     topList: 0,
   });

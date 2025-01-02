@@ -1,3 +1,19 @@
+import { EdgeInsets } from 'react-native-safe-area-context';
+
+// Define environment type
+type Environment = 'DEVELOPMENT' | 'STAGING' | 'PRODUCTION';
+
+// Function to generate the env object
+const createEnvironmentObject = <T extends Record<string, string>>(obj: T) => {
+  return Object.keys(obj).reduce(
+    (acc, key) => {
+      acc[key as Environment] = obj[key as keyof T] as Environment;
+      return acc;
+    },
+    {} as Record<Environment, Environment>,
+  );
+};
+
 // function to convert string to title case
 export function toTitleCase(str: string) {
   return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
@@ -25,9 +41,36 @@ export function extractDate(isoString: Date | undefined): string {
   return `${day}-${month}-${year}`;
 }
 
+export const getSafeAreaInsets = (insets: EdgeInsets) => {
+  return {
+    top: insets.top,
+    left: insets.left,
+    right: insets.right,
+    bottom: insets.bottom || 16,
+  };
+};
+
+// Generate the env object
+const env = createEnvironmentObject({
+  STAGING: 'stag',
+  PRODUCTION: 'prod',
+  DEVELOPMENT: 'dev',
+});
+
+// Determine environment based on process.env.APP_ENV
+let ENVIRONMENT: Environment = env.DEVELOPMENT;
+if (process.env.APP_ENV === 'prod') {
+  ENVIRONMENT = env.PRODUCTION;
+} else if (process.env.APP_ENV === 'stag') {
+  ENVIRONMENT = env.STAGING;
+}
+
 const utils = {
+  env,
   toTitleCase,
   extractDate,
+  ENVIRONMENT,
+  getSafeAreaInsets,
   extractDateNumberAndDay,
 };
 

@@ -1,14 +1,11 @@
-import React from 'react';
-
-import styles from './styles';
-import { fontSizes, spacing } from '@src/theme';
 import { TextStyle, View, ViewStyle } from 'react-native';
-import { Button, ButtonProps, Icon, Text } from '@src/components';
 
-type presetType = 'resume' | 'pause' | 'end' | 'skip' | 'restart';
+import { fontSizes, spacing } from '@theme';
+import { Button, ButtonProps, Icon, Text } from '@teamhealthflex/ui';
+
 export interface ExercisePlayPauseButtonProps extends ButtonProps {
   type: presetType;
-  variant?: 'horizontal' | 'vertical';
+  variant?: variantPreset;
 }
 
 const getIcon = (preset: presetType, iconSize: number) => {
@@ -43,31 +40,32 @@ const getTitle = (preset: presetType) => {
   }
 };
 
-export const ExercisePlayPauseButton: React.FC<ExercisePlayPauseButtonProps> = React.memo(
-  ({ type, onPress, variant, ...props }) => {
-    const iconSize = variant === 'vertical' ? spacing.md : spacing.lg;
-    const textStyle = variant === 'vertical' ? $verticleTextStyle : $horizontalTextStyle;
-    const mainContainer = variant === 'vertical' ? $verticleContainer : $horizontalContainer;
-    const style = variant === 'vertical' ? styles.verticalContainer : styles.horizontalContainer;
+export function ExercisePlayPauseButton(props: ExercisePlayPauseButtonProps) {
+  const { type, onPress, variant, ...rest } = props;
 
-    return (
-      <Button
-        size="extraSmall"
-        style={[style, styles.playbackButtons]}
-        onPress={onPress}
-        preset="reversed"
-        {...props}
-      >
-        <View style={mainContainer}>
-          {getIcon(type, iconSize)}
-          <Text style={textStyle}>{getTitle(type)}</Text>
-        </View>
-      </Button>
-    );
-  },
-);
+  const iconSize = variant === 'vertical' ? spacing.md : spacing.lg;
+  const textStyle = variant === 'vertical' ? $verticleTextStyle : $horizontalTextStyle;
+  const mainContainer = variant === 'vertical' ? $verticleContainer : $horizontalContainer;
+  const style = variant === 'vertical' ? $verticleContainer : $horizontalContainer;
 
-export default ExercisePlayPauseButton;
+  return (
+    <Button
+      size="extraSmall"
+      style={[style, $playbackButtons]}
+      onPress={onPress}
+      preset="reversed"
+      {...rest}
+    >
+      <View style={mainContainer}>
+        {getIcon(type, iconSize)}
+        <Text style={textStyle}>{getTitle(type)}</Text>
+      </View>
+    </Button>
+  );
+}
+
+export type variantPreset = 'horizontal' | 'vertical';
+export type presetType = 'resume' | 'pause' | 'end' | 'skip' | 'restart';
 
 const $verticleTextStyle: TextStyle = {
   textAlign: 'center',
@@ -96,3 +94,15 @@ const $horizontalContainer: ViewStyle = {
   justifyContent: 'center',
   alignItems: 'center',
 };
+
+const $playbackButtons: ViewStyle = {
+  minWidth: spacing.header_section_empty_height,
+};
+
+/**
+ * The display name of the `ExercisePlayPauseButton` component.
+ * @type {string}
+ */
+ExercisePlayPauseButton.displayName = 'ExercisePlayPauseButton';
+
+export default ExercisePlayPauseButton;

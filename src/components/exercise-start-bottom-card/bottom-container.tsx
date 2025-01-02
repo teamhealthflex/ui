@@ -1,38 +1,98 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, ViewStyle, Platform } from 'react-native';
 import { MaterialIcons, Ionicons, Octicons } from '@expo/vector-icons';
 
-import styles from './styles';
+import { useTheme } from '@contexts';
 import { useSession } from '@src/contexts/session';
-import { colors, spacing, typography } from '@src/theme';
+import { fontSizes, radius, spacing } from '@theme';
 
-interface BottomContainerProps {
+export interface BottomContainerProps {
   handleCardPress: () => void;
 }
 
-const BottomContainer: React.FC<BottomContainerProps> = React.memo(({ handleCardPress }) => {
+export function BottomContainer(props: BottomContainerProps) {
+  const { handleCardPress, ...rest } = props;
+
+  const { colors } = useTheme();
   const { exercise, repCount, starsAchieved } = useSession();
   const totalRepCount = React.useMemo(() => exercise?.numberOfReps ?? 0, [exercise]);
 
+  const $bottomContainer: ViewStyle = {
+    height: '10%',
+    borderWidth: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderRadius: radius.lg,
+    marginVertical: spacing.md,
+    borderColor: colors.primary,
+    marginHorizontal: spacing.md,
+    paddingHorizontal: spacing.md,
+    justifyContent: 'space-between',
+    backgroundColor: colors.white100,
+    ...Platform.select({
+      ios: {
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: radius.xs,
+        shadowColor: colors.black500,
+      },
+    }),
+  };
+
+  const $repsParentContainer: ViewStyle = {
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
+  const $repsContainer: ViewStyle = {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.xxs,
+  };
+
+  const $bottomRefreshIconContainer: ViewStyle = {
+    width: spacing.xl,
+    height: spacing.xl,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: spacing.xl / 2,
+    borderColor: colors.primary100,
+    backgroundColor: 'rgba(26, 53, 107, 0.06)',
+  };
+
+  const $starsParentContainer: ViewStyle = {
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
+
+  const $starsContainer: ViewStyle = {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing.xxs,
+  };
+
   return (
-    <View style={styles.bottomContainer}>
+    <View style={$bottomContainer} {...rest}>
       {/* Display the current and total reps */}
-      <View style={styles.repsParentContainer}>
-        <View style={styles.repsContainer}>
-          <View style={styles.bottomRefreshIconContainer}>
+      <View style={$repsParentContainer}>
+        <View style={$repsContainer}>
+          <View style={$bottomRefreshIconContainer}>
             <MaterialIcons name="restart-alt" size={28} color={colors.primary} />
           </View>
           <View style={{ marginLeft: spacing.xxs }}>
             <Text
               style={{
                 color: colors.primary,
-                fontSize: typography.size.lg.fontSize,
+                ...fontSizes.lg,
               }}
             >
               <Text
                 style={{
                   color: colors.primary,
-                  fontSize: typography.size.lg.fontSize,
+                  ...fontSizes.lg,
                 }}
               >
                 {repCount}
@@ -44,7 +104,7 @@ const BottomContainer: React.FC<BottomContainerProps> = React.memo(({ handleCard
         <Text
           style={{
             color: colors.primary,
-            fontSize: typography.size.sm.fontSize,
+            ...fontSizes.sm,
           }}
         >
           Total reps
@@ -59,22 +119,22 @@ const BottomContainer: React.FC<BottomContainerProps> = React.memo(({ handleCard
       </View>
 
       {/* Display the current and total stars */}
-      <View style={styles.starsParentContainer}>
-        <View style={styles.starsContainer}>
-          <View style={styles.bottomRefreshIconContainer}>
+      <View style={$starsParentContainer}>
+        <View style={$starsContainer}>
+          <View style={$bottomRefreshIconContainer}>
             <Octicons name="star" size={24} color={colors.primary} />
           </View>
           <View style={{ marginLeft: spacing.xxs }}>
             <Text
               style={{
                 color: colors.primary,
-                fontSize: typography.size.lg.fontSize,
+                ...fontSizes.lg,
               }}
             >
               <Text
                 style={{
                   color: colors.primary,
-                  fontSize: typography.size.lg.fontSize,
+                  ...fontSizes.lg,
                 }}
               >
                 {starsAchieved}
@@ -86,7 +146,7 @@ const BottomContainer: React.FC<BottomContainerProps> = React.memo(({ handleCard
         <Text
           style={{
             color: colors.primary,
-            fontSize: typography.size.sm.fontSize,
+            ...fontSizes.sm,
           }}
         >
           Total stars
@@ -94,6 +154,12 @@ const BottomContainer: React.FC<BottomContainerProps> = React.memo(({ handleCard
       </View>
     </View>
   );
-});
+}
+
+/**
+ * The display name of the `BottomContainer` component.
+ * @type {string}
+ */
+BottomContainer.displayName = 'BottomContainer';
 
 export default BottomContainer;

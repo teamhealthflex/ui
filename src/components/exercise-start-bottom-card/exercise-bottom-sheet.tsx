@@ -2,14 +2,17 @@ import React from 'react';
 import { View, ViewStyle } from 'react-native';
 import { StackActions, useFocusEffect, useNavigation } from '@react-navigation/core';
 
-import Spinner from '../spinner';
-import { spacing } from '@src/theme';
+import { spacing } from '@theme';
 import { useSession } from '@src/contexts';
-import { AudioPlayer } from '../audio-player';
 import BottomContainer from './bottom-container';
-import ExercisePlaybackSheet from '../exercise-playback';
-import BottomSheet, { BottomSheetRef } from '../bottom-sheet';
 import { ExerciseRepData, MEASURABLE_TYPE } from '@src/models';
+import {
+  Spinner,
+  AudioPlayer,
+  BottomSheet,
+  BottomSheetRef,
+  ExercisePlaybackSheet,
+} from '@teamhealthflex/ui';
 import {
   ExerciseFlowRoutes,
   RegimenStackRoutes,
@@ -18,18 +21,16 @@ import {
   PreExerciseStackRoutes,
 } from '@src/navigation';
 
-type ExerciseBottomSheetProps = {
+export type ExerciseBottomSheetProps = {
   rep?: ExerciseRepData;
   resetStore: () => void;
   pauseExercise: () => void;
   resumeExercise: () => void;
 };
 
-const ExerciseBottomSheet: React.FC<ExerciseBottomSheetProps> = ({
-  rep,
-  pauseExercise,
-  resumeExercise,
-}) => {
+export function ExerciseBottomSheet(props: ExerciseBottomSheetProps) {
+  const { rep, pauseExercise, resumeExercise } = props;
+
   const navigation = useNavigation();
   const bottomSheetRef = React.useRef<BottomSheetRef>(null);
 
@@ -194,7 +195,7 @@ const ExerciseBottomSheet: React.FC<ExerciseBottomSheetProps> = ({
       )}
     </>
   );
-};
+}
 
 const $spinnerContainer: ViewStyle = {
   flex: 1,
@@ -203,4 +204,10 @@ const $spinnerContainer: ViewStyle = {
   marginVertical: spacing.xl,
 };
 
-export const MemoExerciseBottomSheet = React.memo(ExerciseBottomSheet);
+/**
+ * The display name of the `ExerciseBottomSheet` component.
+ * @type {string}
+ */
+ExerciseBottomSheet.displayName = 'ExerciseBottomSheet';
+
+export default ExerciseBottomSheet;

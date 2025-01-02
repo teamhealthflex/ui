@@ -166,23 +166,29 @@
     "version": "0.45.3"
   },
   "dependencies": {
+    "@backpackapp-io/react-native-toast": "^0.13.0",
     "@candlefinance/faster-image": "^1.7.2",
     "@expo/vector-icons": "^14.0.4",
     "@gorhom/bottom-sheet": "^5.0.6",
     "@kolking/react-native-rating": "^1.4.0",
+    "@react-native-community/netinfo": "^11.4.1",
     "@react-navigation/native": "^7.0.14",
     "@shopify/flash-list": "^1.7.2",
+    "dayjs": "^1.11.13",
+    "expo-audio": "^0.3.1",
     "expo-linear-gradient": "^14.0.1",
     "expo-modules-core": "^2.1.2",
     "lottie-react-native": "^7.1.0",
     "react-hook-form": "^7.54.2",
     "react-native-awesome-slider": "^2.9.0",
+    "react-native-gesture-handler": "^2.21.2",
     "react-native-gifted-charts": "^1.4.51",
     "react-native-keyboard-controller": "^1.15.2",
     "react-native-reanimated": "^3.16.6",
     "react-native-responsive-fontsize": "^0.5.1",
     "react-native-safe-area-context": "^5.0.0",
     "react-native-star-rating-widget": "^1.9.2",
-    "react-native-svg": "^15.10.1"
+    "react-native-svg": "^15.10.1",
+    "react-native-ui-datepicker": "^2.0.4"
   }
 }

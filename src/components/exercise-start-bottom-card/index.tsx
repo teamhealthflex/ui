@@ -3,7 +3,7 @@ import { useShallow } from 'zustand/react/shallow';
 
 import { useSession } from '@src/contexts';
 import { MEASURABLE_TYPE } from '@src/models';
-import { MemoExerciseBottomSheet } from './exercise-bottom-sheet';
+import { ExerciseBottomSheet } from './exercise-bottom-sheet';
 import { useMeasurableExerciseStore, useNonMeasurableExerciseStore } from '@src/store';
 
 export interface ExerciseStartBottomCardProps {
@@ -81,7 +81,13 @@ export const ExerciseStartBottomCard: React.FC = React.memo(() => {
     };
   }, [measurableType, measurableBottomSheetProps, nonMeasurableBottomSheetProps]);
 
-  return <MemoExerciseBottomSheet {...bottomSheetProps} />;
+  return <ExerciseBottomSheet {...bottomSheetProps} />;
 });
+
+/**
+ * The display name of the `ExerciseStartBottomCard` component.
+ * @type {string}
+ */
+ExerciseStartBottomCard.displayName = 'ExerciseStartBottomCard';
 
 export default ExerciseStartBottomCard;

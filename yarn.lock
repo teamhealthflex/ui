@@ -1612,6 +1612,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@backpackapp-io/react-native-toast@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "@backpackapp-io/react-native-toast@npm:0.13.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-gesture-handler: ">=2.2.1"
+    react-native-reanimated: ">=2.8.0"
+    react-native-safe-area-context: ">=4.2.4"
+  checksum: 14133efb77c0b9a850a2805c465d0771ff7eb2d613a28c9745be1c05699bab9ddafce22496052b9b0fb30ae6ed56a14a2dcf5c2264bfcd36afdc093ab8614f04
+  languageName: node
+  linkType: hard
+
 "@bcoe/v8-coverage@npm:^0.2.3":
   version: 0.2.3
   resolution: "@bcoe/v8-coverage@npm:0.2.3"
@@ -1850,6 +1863,15 @@ __metadata:
   dependencies:
     "@jridgewell/trace-mapping": 0.3.9
   checksum: 5718f267085ed8edb3e7ef210137241775e607ee18b77d95aa5bd7514f47f5019aa2d82d96b3bf342ef7aa890a346fa1044532ff7cc3009e7d24fce3ce6200fa
+  languageName: node
+  linkType: hard
+
+"@egjs/hammerjs@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "@egjs/hammerjs@npm:2.0.17"
+  dependencies:
+    "@types/hammerjs": ^2.0.36
+  checksum: 8945137cec5837edd70af3f2e0ea621543eb0aa3b667e6269ec6485350f4d120c2434b37c7c30b1cf42a65275dd61c1f24626749c616696d3956ac0c008c4766
   languageName: node
   linkType: hard
 
@@ -2960,6 +2982,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/netinfo@npm:^11.4.1":
+  version: 11.4.1
+  resolution: "@react-native-community/netinfo@npm:11.4.1"
+  peerDependencies:
+    react-native: ">=0.59"
+  checksum: d347ae522da6b8c045d6378754d4928bdf23cc85b74571b91fa8a03fa168bdac5e3c65eb97eac0dd0c7cbd20e782f99d41b090fb79ce7d815cbaf6fb5d1abe37
+  languageName: node
+  linkType: hard
+
 "@react-native/assets-registry@npm:0.76.3":
   version: 0.76.3
   resolution: "@react-native/assets-registry@npm:0.76.3"
@@ -3322,12 +3353,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@teamhealthflex/ui@workspace:."
   dependencies:
+    "@backpackapp-io/react-native-toast": ^0.13.0
     "@candlefinance/faster-image": ^1.7.2
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
     "@expo/vector-icons": ^14.0.4
     "@gorhom/bottom-sheet": ^5.0.6
     "@kolking/react-native-rating": ^1.4.0
+    "@react-native-community/netinfo": ^11.4.1
     "@react-native/eslint-config": ^0.73.1
     "@react-navigation/native": ^7.0.14
     "@release-it/conventional-changelog": ^9.0.2
@@ -3339,11 +3372,13 @@ __metadata:
     babel-jest: ^29.7.0
     babel-plugin-syntax-hermes-parser: ^0.25.1
     commitlint: ^17.0.2
+    dayjs: ^1.11.13
     del-cli: ^5.1.0
     eslint: ^8.51.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.1
     eslint-plugin-testing-library: ^7.1.1
+    expo-audio: ^0.3.1
     expo-linear-gradient: ^14.0.1
     expo-modules-core: ^2.1.2
     jest: ^29.7.0
@@ -3354,6 +3389,7 @@ __metadata:
     react-native: 0.76.3
     react-native-awesome-slider: ^2.9.0
     react-native-builder-bob: ^0.35.2
+    react-native-gesture-handler: ^2.21.2
     react-native-gifted-charts: ^1.4.51
     react-native-keyboard-controller: ^1.15.2
     react-native-reanimated: ^3.16.6
@@ -3361,6 +3397,7 @@ __metadata:
     react-native-safe-area-context: ^5.0.0
     react-native-star-rating-widget: ^1.9.2
     react-native-svg: ^15.10.1
+    react-native-ui-datepicker: ^2.0.4
     react-test-renderer: 18.3.1
     release-it: ^17.10.0
     typescript: ^5.2.2
@@ -3488,6 +3525,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 79d746a8f053954bba36bd3d94a90c78de995d126289d656fb3271dd9f1229d33f678da04d10bce6be440494a5a73438e2e363e92802d16b8315b051036c5256
+  languageName: node
+  linkType: hard
+
+"@types/hammerjs@npm:^2.0.36":
+  version: 2.0.46
+  resolution: "@types/hammerjs@npm:2.0.46"
+  checksum: caba6ec788d19905c71092670b58514b3d1f5eee5382bf9205e8df688d51e7857b7994e2dd7aed57fac8977bdf0e456d67fbaf23440a4385b8ce25fe2af1ec39
   languageName: node
   linkType: hard
 
@@ -5694,6 +5738,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dayjs@npm:^1.11.13":
+  version: 1.11.13
+  resolution: "dayjs@npm:1.11.13"
+  checksum: f388db88a6aa93956c1f6121644e783391c7b738b73dbc54485578736565c8931bdfba4bb94e9b1535c6e509c97d5deb918bbe1ae6b34358d994de735055cca9
+  languageName: node
+  linkType: hard
+
 "debug@npm:2.6.9, debug@npm:^2.2.0, debug@npm:^2.6.9":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
@@ -6868,6 +6919,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-audio@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "expo-audio@npm:0.3.1"
+  peerDependencies:
+    expo: "*"
+    react: "*"
+    react-native: "*"
+  checksum: 82ad419ff8953b5c649260d2ddff3f9ab520da45ddac49c0f3cbc79f7af50b6cc147de91ab6ba721265a717cbe9d51e72a9e6195e4d4a6eac44f252fd6c220a3
+  languageName: node
+  linkType: hard
+
 "expo-constants@npm:~17.0.0, expo-constants@npm:~17.0.3":
   version: 17.0.3
   resolution: "expo-constants@npm:17.0.3"
@@ -7948,6 +8010,15 @@ __metadata:
   dependencies:
     hermes-estree: 0.25.1
   checksum: 4edcfaa3030931343b540182b83c432aba4cdcb1925952521ab4cfb7ab90c2c1543dfcb042ccd51d5e81e4bfe2809420e85902c2ff95ef7c6c64644ce17138ea
+  languageName: node
+  linkType: hard
+
+"hoist-non-react-statics@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: ^16.7.0
+  checksum: b1538270429b13901ee586aa44f4cc3ecd8831c061d06cb8322e50ea17b3f5ce4d0e2e66394761e6c8e152cd8c34fb3b4b690116c6ce2bd45b18c746516cb9e8
   languageName: node
   linkType: hard
 
@@ -11961,7 +12032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.8.1, prop-types@npm:^15.8.1":
+"prop-types@npm:15.8.1, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -12152,7 +12223,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1":
+"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
@@ -12200,6 +12271,21 @@ __metadata:
   bin:
     bob: bin/bob
   checksum: 254a481e35e359391d249a89aaea8b334479f6bec5c55b840dd05ae48e7733237e2e47a07d27e1132c25b39a1a9b330f2c1e706622b0a00ba4dfcec8183efa56
+  languageName: node
+  linkType: hard
+
+"react-native-gesture-handler@npm:^2.21.2":
+  version: 2.21.2
+  resolution: "react-native-gesture-handler@npm:2.21.2"
+  dependencies:
+    "@egjs/hammerjs": ^2.0.17
+    hoist-non-react-statics: ^3.3.0
+    invariant: ^2.2.4
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 0a42cedb8860a326b465085d0f7622ba03f038b0f0bdd1b1fe5703e58d62cb08bfb82a686c069a1a1410705c2ae0d82971b0449d83796fdd6d071131cf88e68b
   languageName: node
   linkType: hard
 
@@ -12324,6 +12410,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-ui-datepicker@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "react-native-ui-datepicker@npm:2.0.4"
+  dependencies:
+    dayjs: ^1.11.13
+    lodash: ^4.17.21
+    react-native-wheely: ^0.6.0
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 2f8dd506466ed65a2493d9a26a5d515e745e96afa0e81a106af338464393e899d746c426b2953654efb1c2132cd4d73e9f068ed3eaa4339d4c74a0e63ed9550a
+  languageName: node
+  linkType: hard
+
 "react-native-web@npm:~0.19.13":
   version: 0.19.13
   resolution: "react-native-web@npm:0.19.13"
@@ -12340,6 +12440,13 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
   checksum: 15077f88204cb980203b8e3784c092c8c25c972bf281db43fd4ccc9696b603380a49f5289fb9a742daddd8e7599baab5798a1f1c857bdd634add827bc39fd8d8
+  languageName: node
+  linkType: hard
+
+"react-native-wheely@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "react-native-wheely@npm:0.6.0"
+  checksum: 3223c0056160f02696e0d980198b6b3ada6b401c7fba17882253e5700c4066c5c2b9834213317e6c190a1e991acfec7c5526ee08ca89d5eed133c247386cd180
   languageName: node
   linkType: hard
 
