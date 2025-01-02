@@ -11,7 +11,7 @@ import { MemoStarRatings } from './star-ratings';
  */
 const STAR_THRESHOLDS = [10, 30, 50, 70, 90];
 
-export interface ExerciseProgressProps {
+export interface RomProgressProps {
   /**
    * Current progress percentage (0-100)
    */
@@ -23,7 +23,7 @@ export interface ExerciseProgressProps {
   thresholds?: number[];
 }
 
-export function ExerciseProgress(props: ExerciseProgressProps) {
+export function RomProgress(props: RomProgressProps) {
   const { romPercentage, thresholds = STAR_THRESHOLDS, ...rest } = props;
 
   const { colors } = useTheme();
@@ -154,3 +154,11 @@ export function ExerciseProgress(props: ExerciseProgressProps) {
     </View>
   );
 }
+
+/**
+ * The display name of the `RomProgress` component.
+ * @type {string}
+ */
+RomProgress.displayName = 'RomProgress';
+
+export default RomProgress;

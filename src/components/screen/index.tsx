@@ -231,7 +231,7 @@ const ScreenWithFlatList = React.memo((props: ScrollScreenWithDataProps) => {
   );
 });
 
-export const Screen = React.memo((props: ScreenProps) => {
+export function Screen(props: ScreenProps) {
   const {
     safeAreaEdges,
     loading = false,
@@ -281,4 +281,12 @@ export const Screen = React.memo((props: ScreenProps) => {
       </View>
     </KeyboardAvoidingView>
   );
-});
+}
+
+/**
+ * The display name of the `Screen` component.
+ * @type {string}
+ */
+Screen.displayName = 'Screen';
+
+export default Screen;
