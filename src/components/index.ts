@@ -11,6 +11,7 @@ export * from './select';
 export * from './divider';
 export * from './spinner';
 export * from './progress';
+export * from './help-cta';
 export * from './list-tile';
 export * from './list-item';
 export * from './otp-input';
