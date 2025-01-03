@@ -9,7 +9,7 @@ const config: Config = {
     '^.+\\.(ts|tsx)$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|@react-native|react-native-gesture-handler)/)',
+    'node_modules/(?!(react-native|@react-native|react-native-gesture-handler|@expo/vector-icons|expo-linear-gradient|expo-modules-core)/)',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/lib/', '<rootDir>/example/node_modules'],
@@ -22,6 +22,8 @@ const config: Config = {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@theme$': '<rootDir>/src/theme',
     '^@theme/(.*)$': '<rootDir>/src/theme/$1',
+    // '^expo-linear-gradient$': '<rootDir>/__mocks__/expo-linear-gradient.ts',
+    // '^@expo/vector-icons$': '<rootDir>/__mocks__/@expo/vector-icons.ts',
   },
   globals: {
     __DEV__: true,

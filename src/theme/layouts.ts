@@ -1,4 +1,13 @@
-import { Dimensions, PixelRatio, Platform } from 'react-native';
+import { StatusBar, Dimensions, PixelRatio, Platform } from 'react-native';
+
+const { width, height, scale, fontScale } = Dimensions.get('window');
+
+export const window = {
+  width,
+  height,
+  scale,
+  fontScale,
+};
 
 const screen = {
   scale: Dimensions.get('screen').scale,
@@ -12,7 +21,9 @@ const screen = {
  */
 export const layouts = {
   screen,
+  window,
   platformOS: Platform.OS,
   devicePixelRatio: PixelRatio.get(),
   isSmallDevice: Dimensions.get('screen').width < 375,
+  statusBarHeight: StatusBar.currentHeight,
 };

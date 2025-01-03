@@ -69,5 +69,6 @@ global.window = {};
 global.window = global;
 
 declare global {
+  // @ts-ignore
   let __TEST__: boolean;
 }
