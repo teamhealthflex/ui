@@ -1,10 +1,13 @@
+import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
+
 import {
   Text,
   Card,
   Chip,
   Icon,
   Toggle,
+  Spinner,
   OtpInput,
   TextField,
   ActivityRing,
@@ -12,11 +15,8 @@ import {
   CountDownTimer,
   CircularProgress,
   DailyCalendarStats,
-  Spinner,
 } from '@teamhealthflex/ui';
-
 import { storage } from './storage';
-import React from 'react';
 
 export default function App() {
   const rings = [
